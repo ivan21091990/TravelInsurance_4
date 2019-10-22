@@ -1,5 +1,7 @@
 package steps;
 
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.*;
@@ -25,7 +27,7 @@ public class BaseSteps {
     public static Properties properties = TestProperties.getInstance().getProperties();
 
 
-    @BeforeClass
+    @Before
     public static void setUp() throws Exception {
         switch (properties.getProperty("browser")){
             case "firefox":
@@ -46,7 +48,7 @@ public class BaseSteps {
 
     }
 
-    @AfterClass
+    @After
     public static void tearDown() throws Exception {
         driver.quit();
     }
